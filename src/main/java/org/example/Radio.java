@@ -3,61 +3,84 @@ package org.example;
 
 
 public class Radio {
-    private int radioStationNumber;
-    private int currentVolume;
+    private int startRadioStationNumber = 0;
+    private int finishRadioStationNumber = 9;
+    private int currentRadioStationNumber = startRadioStationNumber;
+    private int minVolume = 0;
+    private int maxVolume = 100;
+    private int currentVolume = minVolume;
 
-    public int getRadioStationNumber() {
-        return radioStationNumber;
+    public Radio(int size) {
+        finishRadioStationNumber = size - 1;
+
     }
 
-    public void setRadioStationNumber(int newStationNumber) {
+    public Radio() {
 
-        if (newStationNumber > 9) {
+    }
+
+    ;
+
+    public int getStartRadioStationNumber() {
+        return startRadioStationNumber;
+    }
+
+    public int getFinishRadioStationNumber() {
+        return finishRadioStationNumber;
+    }
+
+    public int getCurrentRadioStationNumber() {
+        return currentRadioStationNumber;
+    }
+
+    public void setCurrentRadioStationNumber(int newStationNumber) {
+
+        if (newStationNumber > finishRadioStationNumber) {
             return;
         }
-        radioStationNumber = newStationNumber;
+        currentRadioStationNumber = newStationNumber;
 
     }
 
     public int nextStation() {
-        radioStationNumber = radioStationNumber + 1;
-        if (radioStationNumber > 9) {
-            return 0;
+        currentRadioStationNumber = currentRadioStationNumber + 1;
+        if (currentRadioStationNumber > finishRadioStationNumber) {
+            return startRadioStationNumber;
         }
-        return radioStationNumber;
+        return currentRadioStationNumber;
     }
 
     public int prevStation() {
-        radioStationNumber = radioStationNumber - 1;
-        if (radioStationNumber < 0) {
-            return 9;
+        currentRadioStationNumber = currentRadioStationNumber - 1;
+        if (currentRadioStationNumber < startRadioStationNumber) {
+            return finishRadioStationNumber;
         }
-        return radioStationNumber;
+        return currentRadioStationNumber;
 
 
     }
 
+
+
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
 
-        if (newCurrentVolume > 10) {
-            newCurrentVolume = 10;
-        }
         currentVolume = newCurrentVolume;
     }
 
     public int increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
         return currentVolume;
     }
 
     public int decreaseVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
         return currentVolume;
