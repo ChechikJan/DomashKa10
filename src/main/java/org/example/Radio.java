@@ -60,23 +60,15 @@ public class Radio {
 
     }
 
-    public int getMinVolume() {
-        return minVolume;
-    }
 
-    public int getMaxVolume() {
-        return maxVolume;
-    }
 
     public int getCurrentVolume() {
+
         return currentVolume;
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
 
-        if (newCurrentVolume > maxVolume) {
-            newCurrentVolume = maxVolume;
-        }
         currentVolume = newCurrentVolume;
     }
 
