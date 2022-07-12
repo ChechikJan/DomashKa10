@@ -3,8 +3,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-    Radio radio = new Radio(15);
-    @Test
+    Radio radio = new Radio();
     public void MoreThanTheMaximumRadioStationNumberTest(){
         radio.setCurrentRadioStationNumber(15);
         int expected = 0;
@@ -16,15 +15,15 @@ public class RadioTest {
 
     @Test
     public void nextStationOverMaxTest() {
-        radio.setCurrentRadioStationNumber(14);
+        radio.setCurrentRadioStationNumber(9);
         int expected = 0;
         int actual = radio.nextStation();
         Assertions.assertEquals(expected, actual);
     }
     @Test
     public void nextStationTest() {
-        radio.setCurrentRadioStationNumber(11);
-        int expected = 12;
+        radio.setCurrentRadioStationNumber(7);
+        int expected = 8;
         int actual = radio.nextStation();
         Assertions.assertEquals(expected, actual);
     }
@@ -38,7 +37,7 @@ public class RadioTest {
     @Test
     public void prevStationLessMinTest() {
         radio.setCurrentRadioStationNumber(0);
-        int expected = 14;
+        int expected = 9;
         int actual = radio.prevStation();
         Assertions.assertEquals(expected, actual);
     }
