@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class RadioTest {
     Radio radio = new Radio();
+    @Test
     public void MoreThanTheMaximumRadioStationNumberTest(){
         radio.setCurrentRadioStationNumber(15);
         int expected = 0;

@@ -22,11 +22,6 @@ public class Radio {
 
     }
 
-    public Radio() {
-
-    }
-
-    ;
 
     public int getStartRadioStationNumber() {
         return startRadioStationNumber;
